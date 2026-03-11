@@ -26,3 +26,25 @@ def test_bob_cannot_delete_alice_issue():
     
     assert response.status_code == 403
     assert Issue.objects.filter(id=issue.id).exists() is True
+    
+@pytest.mark.django_db
+def test_serializer_read_only_fields_protection():
+    client = APIClient()
+    hacker = User.objects.create_user(username='hacker', password='password123')
+    victim = User.objects.create_user(username='victim', password='password123')
+    
+    client.force_authenticate(user=hacker)
+    
+    malicious_payload = {
+        "title": "Hacked Issue",
+        "description": "I am forging the reporter!",
+        "reporter": victim.id,  
+        "created_at": "1999-01-01T00:00:00Z" 
+    }
+    
+    response = client.post('/api/issues/', malicious_payload, format='json')
+    
+    assert response.status_code == 201 
+    created_issue = Issue.objects.get(title="Hacked Issue")
+    assert created_issue.reporter == hacker
+    assert created_issue.created_at.year >= 2024
