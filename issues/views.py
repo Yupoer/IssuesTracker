@@ -5,9 +5,9 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from django_filters.rest_framework import DjangoFilterBackend
 from django.contrib.auth import get_user_model
-from .models import Issue
+from .models import Issue, Comment
 from .serializers import IssueSerializer, CommentSerializer, UserSerializer
-from .permissions import IsReporterOrAssigneeOrReadOnly
+from .permissions import IsReporterOrAssigneeOrReadOnly, IsPosterOrReadOnly
 
 User = get_user_model()
 
@@ -56,7 +56,7 @@ class UserViewSet(viewsets.ReadOnlyModelViewSet):
 class CommentViewSet(viewsets.ModelViewSet):
     queryset = Comment.objects.select_related('poster', 'issue').all()
     serializer_class = CommentSerializer
-    permission_classes = [IsAuthenticated, IsReporterOrReadOnly]
+    permission_classes = [IsAuthenticated, IsPosterOrReadOnly]
 
     def perform_create(self, serializer):
         serializer.save(poster=self.request.user)

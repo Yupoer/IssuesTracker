@@ -1,6 +1,6 @@
 # issues/serializers.py
 from rest_framework import serializers
-from .models import Issue
+from .models import Issue, Comment
 from django.contrib.auth import get_user_model
 
 User = get_user_model()

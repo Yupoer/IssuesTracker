@@ -8,7 +8,7 @@ class User(AbstractUser):
 #Tag
 class Tag(models.Model):
     name = models.CharField(max_length=50, unique=True)
-    color = models.CharField(max_length=7, default="#000000") # 存 Hex color
+    color = models.CharField(max_length=7, default="#000000")
 
     def __str__(self):
         return self.name
@@ -29,14 +29,14 @@ class Issue(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField(blank=True)
     status = models.CharField(max_length=20, choices=StatusChoices.choices, default=StatusChoices.OPEN, db_index=True)
-    priority = models.CharField(max_length=20, choices=PriorityChoices.choices, default=PriorityChoices.MEDIUM)
+    priority = models.CharField(max_length=20, choices=PriorityChoices.choices, default=PriorityChoices.MEDIUM, db_index=True)
     
     reporter = models.ForeignKey(User, on_delete=models.CASCADE, related_name='reported_issues')
     assignee = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, related_name='assigned_issues')
     
     tags = models.ManyToManyField(Tag, related_name='issues', blank=True)
     
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=True, db_index=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
