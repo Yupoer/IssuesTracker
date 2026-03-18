@@ -28,7 +28,7 @@ class Issue(models.Model):
 
     title = models.CharField(max_length=255)
     description = models.TextField(blank=True)
-    status = models.CharField(max_length=20, choices=StatusChoices.choices, default=StatusChoices.OPEN)
+    status = models.CharField(max_length=20, choices=StatusChoices.choices, default=StatusChoices.OPEN, db_index=True)
     priority = models.CharField(max_length=20, choices=PriorityChoices.choices, default=PriorityChoices.MEDIUM)
     
     reporter = models.ForeignKey(User, on_delete=models.CASCADE, related_name='reported_issues')

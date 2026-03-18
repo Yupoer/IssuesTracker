@@ -139,3 +139,9 @@ REST_FRAMEWORK = {
         'user': '60/min'   # Auth
     }
 }
+
+from datetime import timedelta
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(hours=24),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
+}

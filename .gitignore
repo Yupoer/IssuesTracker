@@ -13,3 +13,6 @@ env/
 
 # SQLite 資料庫 (開發期的測試資料，通常不進版控)
 db.sqlite3
+
+*.drawio
+*.drawio.bkp
