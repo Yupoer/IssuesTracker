@@ -1,6 +1,6 @@
 # IssuesTracker
 
-[![CI](https://github.com/your-username/IssuesTracker/actions/workflows/ci.yml/badge.svg)](https://github.com/your-username/IssuesTracker/actions/workflows/ci.yml)
+[![CI](https://github.com/Yupoer/IssuesTracker/actions/workflows/ci.yml/badge.svg)](https://github.com/Yupoer/IssuesTracker/actions/workflows/ci.yml)
 
 A RESTful issue tracking API built with **Django 6.0** and **Django REST Framework**, featuring JWT authentication, role-based permissions, status machine validation, and Docker support.
 
