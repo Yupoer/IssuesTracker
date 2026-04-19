@@ -1,6 +1,6 @@
 # IssuesTracker
 
-[![CI](https://github.com/Yupoer/IssuesTracker/actions/workflows/ci.yml/badge.svg)](https://github.com/Yupoer/IssuesTracker/actions/workflows/ci.yml) [![Python](https://img.shields.io/badge/Python-3.13+-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org/) [![Django](https://img.shields.io/badge/Django-6.0.3-092E20?style=flat&logo=django&logoColor=white)](https://www.djangoproject.com/) [![DRF](https://img.shields.io/badge/DRF-3.16-red?style=flat)](https://www.django-rest-framework.org/) [![Docker](https://img.shields.io/badge/Docker-Enabled-2496ED?style=flat&logo=docker&logoColor=white)](https://www.docker.com/) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.13+-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org/) [![Django](https://img.shields.io/badge/Django-6.0.3-092E20?style=flat&logo=django&logoColor=white)](https://www.djangoproject.com/) [![DRF](https://img.shields.io/badge/DRF-3.16-red?style=flat)](https://www.django-rest-framework.org/) [![Docker](https://img.shields.io/badge/Docker-Enabled-2496ED?style=flat&logo=docker&logoColor=white)](https://www.docker.com/) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 A RESTful issue tracking API built with **Django 6.0** and **Django REST Framework**, featuring JWT authentication, role-based permissions, status machine validation, and Docker support.
 
