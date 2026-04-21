@@ -2,7 +2,12 @@
 
 [![Python](https://img.shields.io/badge/Python-3.13+-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org/) [![Django](https://img.shields.io/badge/Django-6.0.3-092E20?style=flat&logo=django&logoColor=white)](https://www.djangoproject.com/) [![DRF](https://img.shields.io/badge/DRF-3.16-red?style=flat)](https://www.django-rest-framework.org/) [![Docker](https://img.shields.io/badge/Docker-Enabled-2496ED?style=flat&logo=docker&logoColor=white)](https://www.docker.com/) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-A RESTful issue tracking API built with **Django 6.0** and **Django REST Framework**, featuring JWT authentication, role-based permissions, status machine validation, and Docker support.
+
+## Introduction
+
+**IssuesTracker** is a backend API service for tracking issues/bugs in software projects. It provides a complete CRUD interface for issue management, with support for user authentication, issue assignment, tagging, commenting, and filtering.
+
+The API enforces a strict **status state machine** — only authorized roles (Reporter, Assignee, Admin) can perform specific status transitions. Write access is restricted to the Reporter and Assignee of an issue; other authenticated users have read-only access.
 
 ---
 
@@ -23,12 +28,6 @@ A RESTful issue tracking API built with **Django 6.0** and **Django REST Framewo
 - [License](#license)
 
 ---
-
-## Introduction
-
-**IssuesTracker** is a backend API service for tracking issues/bugs in software projects. It provides a complete CRUD interface for issue management, with support for user authentication, issue assignment, tagging, commenting, and filtering.
-
-The API enforces a strict **status state machine** — only authorized roles (Reporter, Assignee, Admin) can perform specific status transitions. Write access is restricted to the Reporter and Assignee of an issue; other authenticated users have read-only access.
 
 ## Features
 
