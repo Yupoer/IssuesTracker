@@ -15,12 +15,12 @@ The API enforces a strict **status state machine** — only authorized roles (Re
 
 - [Introduction](#introduction)
 - [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Architecture](#architecture)
-- [Project Structure](#project-structure)
 - [Quick Start](#quick-start)
   - [Local Development](#local-development)
   - [Docker](#docker)
+- [Tech Stack](#tech-stack)
+- [Architecture](#architecture)
+- [Project Structure](#project-structure)
 - [Environment Variables](#environment-variables)
 - [API Endpoints](#api-endpoints)
 - [Status Transition Rules](#status-transition-rules)
@@ -44,6 +44,52 @@ The API enforces a strict **status state machine** — only authorized roles (Re
 - • **User Endpoints** — Read-only user listing with linked issues and comments
 - • **Docker Ready** — One-command deployment with Docker Compose
 - • **CI/CD** — GitHub Actions automated testing on every push
+
+## Quick Start
+
+### Prerequisites
+
+- • Python 3.14+
+- • pip
+
+### Local Development
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/your-username/IssuesTracker.git
+cd IssuesTracker
+
+# 2. Create and activate virtual environment
+python -m venv venv
+source venv/bin/activate  # macOS / Linux
+venv\Scripts\activate     # Windows
+
+# 3. Install dependencies
+pip install -r requirements.txt
+
+# 4. Run database migrations
+python manage.py migrate
+
+# 5. Create a superuser (optional)
+python manage.py createsuperuser
+
+# 6. Start the development server
+python manage.py runserver
+```
+
+The API will be available at `http://127.0.0.1:8000/api/`.
+
+### Docker
+
+```bash
+# Build and start all services
+docker compose up --build
+
+# Run in detached mode
+docker compose up --build -d
+```
+
+The API will be available at `http://localhost:8000/api/`.
 
 ## Tech Stack
 
@@ -155,51 +201,6 @@ IssuesTracker/
 └── README.md
 ```
 
-## Quick Start
-
-### Prerequisites
-
-- • Python 3.14+
-- • pip
-
-### Local Development
-
-```bash
-# 1. Clone the repository
-git clone https://github.com/your-username/IssuesTracker.git
-cd IssuesTracker
-
-# 2. Create and activate virtual environment
-python -m venv venv
-source venv/bin/activate  # macOS / Linux
-venv\Scripts\activate     # Windows
-
-# 3. Install dependencies
-pip install -r requirements.txt
-
-# 4. Run database migrations
-python manage.py migrate
-
-# 5. Create a superuser (optional)
-python manage.py createsuperuser
-
-# 6. Start the development server
-python manage.py runserver
-```
-
-The API will be available at `http://127.0.0.1:8000/api/`.
-
-### Docker
-
-```bash
-# Build and start all services
-docker compose up --build
-
-# Run in detached mode
-docker compose up --build -d
-```
-
-The API will be available at `http://localhost:8000/api/`.
 
 ## Environment Variables
 
